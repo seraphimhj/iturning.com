@@ -1,0 +1,72 @@
+extends ../layouts/post
+
+block main
+  h1= product.title
+
+block content
+  .row
+    .span9
+      h3 用途及特点
+      p 本机适用于医药、卫生、食品、烟、酒、化妆品及轻工产品等包装所用的各种纸盒糊盒加工成型。
+      p 按工艺要求，可粘合各式复杂纸盒制品。
+      ul
+        li 采用加强型轻便传转结构；
+        li 马达采用双频控制，稳定省电；
+        li 操作采用双面牙杆调整，简单方便；
+        li 能生产四折或二折勾底的裱瓦或对裱包装盒
+      hr
+      h3 性能特点
+      p 本机采用丝杆传动机构控制各部导轨，整体调节移动，校正后自锁能力强，其准确度达到进口机水平等优点，弥补了国内同类产品分体调节的缺点。
+      p 本机具有自动输送，预折-三折线，自动锁底，准确折盒成型，光电计数自动调节，无级变速等程序控制，一条龙同步连锁作业。
+      ol 
+        li 送纸部：单板操作机构快速简便，振动马达配合，快速自动给纸，采用无级变速器，调节进纸间距，光电计数，准确度高。
+        li 压着部：连续积盒方式，采用光电计数。
+        li 预折部：长距离折返部，真正实现纸盒完成第1线180度，第3线90度，便于纸盒填充实物时方便打开。
+        li 勾底部：采用勾子与铝滑块和压条巧妙的配合上糊结构上胶，轻松完成勾底的工作，操作简便。
+        li 本折部：糊盒设有左右装置，糊量稳定，容量大，保养简便，折盒快速，底贴简易。
+        li 压盒部：接收输送，压平凉干上糊部位，均衡压着，整齐输出，确保完美品质。
+      ul.thumbnails
+        if (!product.isNew && product.image && product.image.files && product.image.files.length)
+          each fname, i in product.image.files
+            if i < product.image.files.length - 4
+              li.span2
+                a.thumbnail.product-detail-image(rel=product.title, href=product.image.cdnUri + '/' + fname, alt=product.image.descript[i])
+                  img.img-rounded(src=product.image.cdnUri + '/' + fname, alt=product.image.descript[i], style='width:200px; height:148px;')
+      hr
+
+      h3 工作环境要求
+      ol
+        li 设备场所：无强烈腐蚀性气体的粉尘
+        li 温度：—10度+40度
+        li 湿度：90%以下（无水珠凝结现象）  
+        li 振动：0.5G以下
+        li 外型尺寸：8250MM  X  1200MM  X  1400MM
+        li 整机定量：2200KG
+      hr
+
+      a.product-detail-image(rel=product.title, href=product.image.cdnUri + '/' + product.image.files[product.image.files.length-4])
+        img.img-polaroid(src=product.image.cdnUri + '/' + product.image.files[product.image.files.length-4], alt=product.image.descript[product.image.files.length-4])
+      hr
+
+      if (!product.isNew && product.video && product.video.youkuids && product.video.youkuids.length)
+        h3 实地拍摄制造流程
+        p 视频序号：#{randomID+1}
+        div
+          embed(src="http://player.youku.com/player.php/sid/" + product.video.youkuids[randomID] + "/v.swf", allowFullScreen="true", quality="high", width="480", height="400", align="middle", allowScriptAccess="always", type="application/x-shockwave-flash")
+        br
+        a.btn.btn-primary(href="./video/") 浏览全部视频
+        hr
+      .date= formatDate(product.createdAt, "%b %d, %Y at %I:%M %p")
+      if (product.tags)
+        .tags
+          | Tags :&nbsp;
+          each tag in product.tags.split(',')
+            a.tag(href="/tags/"+tag)
+              i.icon-tags
+              |  #{tag}
+        hr
+    .span3
+      
+
+
+

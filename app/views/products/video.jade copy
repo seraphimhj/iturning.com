@@ -1,0 +1,36 @@
+extends ../layouts/post
+
+block main
+  h1= title
+
+block content
+  .row
+  div
+    ul.thumbnails
+      - var videos = ["http://61.55.189.17/youku/6562E54AED4B811CADFF456EA/030020010051BD953DC4DF0871E7C00A2D64E9-8911-C859-0B49-DAE7489E19FF.mp4", "http://27.221.18.132/youku/6571180C7EF39831A19FDA2AD9/030020010051BD86A44ABC0871E7C0FE780FB4-35A2-5480-45B6-EA487099E1F7.mp4", "http://61.55.189.21/youku/6563524DD13F7EE8401968C2/030020010051BD7CBB180C0871E7C018ABC17F-ACCF-BDBE-0CFC-0990CD2F164B.mp4"]
+        each video,i in videos
+          li.span6
+            div.thumbnail.thumb-hover
+              a.product-video(href=video)
+                img(src="../../img/video-poster.jpg")
+                div.mask
+                  h5 ZH-900C型高速自动纸盒糊盒机视频: #{i+1}
+
+
+
+extends ../layouts/post
+
+block main
+  h1= title
+
+block content
+  .row
+  div
+    ul.thumbnails
+      each video in videos
+        li.span6
+          div.thumbnail.thumb-hover
+            a.product-video(href=video)
+              img(src="../../img/video-poster.jpg")
+              div.mask
+                h5 视频序号: #{i+1}

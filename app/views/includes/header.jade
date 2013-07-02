@@ -1,0 +1,44 @@
+
+header#header
+  .navbar.navbar-fixed-top(role='navigation')
+    .navbar-inner
+      .container
+        .nav-collapse.collapse
+          ul.nav
+            li
+              a(href='/')
+                img(src="/img/logo.png", alt="Logo")
+            li
+              a(href="/about") 公司简介
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle="dropdown", data-hover="dropdown", data-delay="100")="产品中心 "
+                i.icon-caret-down
+              ul.dropdown-menu
+                if (products)
+                  each product in products
+                    li
+                      a(href='/products/'+product._id, tabindex="-1") #{product.title}
+                li.divider
+                li
+                  a(href='/products/video', title="糊盒机视频", tabindex="-1") 糊盒机视频
+            li
+              a(href="/network", title="销售网络") 销售网络
+            li
+              a(href="/contact", title="联系我们") 联系我们
+          ul.nav.pull-right
+            if (req.isAuthenticated())
+              li.dropdown
+                a.dropdown-toggle(href="/users/"+req.user.id, role='button', data-toggle='dropdown', data-hover="dropdown", data-delay="100", data-target='#')
+                  i.icon-user.icon-white=" "+req.user.username+" "
+                  i.icon-caret-down
+                ul.dropdown-menu(role='menu')
+                  li
+                    a(href="/users/"+req.user.id) 订单
+                  li
+                    a(href="/users/"+req.user.id) 个人资料
+                  li.divider
+                  li
+                    a(href="/logout") 登出
+            else
+              li
+                a(href="/login") 登陆

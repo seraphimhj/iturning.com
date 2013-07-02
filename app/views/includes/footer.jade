@@ -1,0 +1,18 @@
+div#footer
+  div.container
+    div.main-content
+      div.row
+        div.span4
+          h5 瑞安鸿瑞机械有限公司&copy; 2013
+        div.span4
+          h5 联系方式 Contact
+          p 手机：+86-0-138-0680-9666
+          p 固话：0577-65665666
+          p 传真：0577-65671665
+          p 厂址：浙江省温州市瑞安愚溪工业区锦源北路35号
+        div.span4
+          h5 产品导航 Navigation
+          if (products)
+            each product in products
+              a(href='/products/'+product._id, title=product.title) #{product.title}
+              br

@@ -1,0 +1,17 @@
+
+extends ../layouts/post
+
+block main
+  h1= title
+
+block content
+  .row
+  div
+    ul.thumbnails
+      each video, i in videos
+        li.span6
+          div.thumbnail.thumb-hover
+            a.product-video(href=video)
+              img(src="../../img/video-poster.jpg")
+              div.mask
+                h5 高速自动糊盒机视频: #{i+1}

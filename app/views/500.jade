@@ -1,0 +1,12 @@
+extends layouts/default
+
+block main
+  h1 网络可能发生错误，请重试
+  br
+  span 500
+
+block content
+  #error-message-box
+    #error-stack-trace
+      pre
+        code!= error

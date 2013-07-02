@@ -1,0 +1,37 @@
+extends ../layouts/default
+
+block main
+block content
+  div.session_splitter#products
+  h3 产品展示
+  div
+    ul.thumbnails
+      each product in products
+        li.span6
+          div.thumbnail.thumb-hover
+            a(href='/products/'+product._id, title=product.title)
+              img(src=product.image.cdnUri + '/size_800.jpg')
+              div.mask
+                h5  #{product.title} 
+                  i.icon-chevron-right
+    a.btn.btn-info.pull-right(href="/products/video") 浏览糊盒机视频
+
+  div(style="background:url('../img/bg-module-top-shadow.png') no-repeat 0% 60%;padding: 100px 0px 30px 0px;")
+  
+  div
+    ul.thumbnails
+      li.span3
+        img.img-circle(src="../img/samples/paperbox_1.jpg", style="width:300px; height:250px")
+      li.span3
+        img.img-circle(src="../img/samples/paperbox_2.jpg", style="width:300px; height:250px")
+      li.span3
+        img.img-circle(src="../img/samples/paperbox_3.jpg", style="width:300px; height:250px")
+      li.span3
+        img.img-circle(src="../img/samples/paperbox_4.jpg", style="width:300px; height:250px")
+  
+  div.pull-right(style="text-align:right;")
+    blockquote 术业专攻，锐意进取
+      —— 诚挚希望与您携手
+    a.btn.btn-primary(href="/contact") 详情洽谈
+  br
+  div.session_splitter

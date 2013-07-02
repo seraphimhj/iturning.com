@@ -1,0 +1,13 @@
+extends layouts/default
+
+block main
+  h4 您访问的网页不存在，请浏览其他产品链接
+  br
+  span 404
+
+block content
+  #error-message-box
+    #error-stack-trace
+      pre
+        code!= error
+
