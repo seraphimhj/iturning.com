@@ -14,13 +14,9 @@ header#header
               a.dropdown-toggle(href='#', data-toggle="dropdown", data-hover="dropdown", data-delay="100")="产品中心 "
                 i.icon-caret-down
               ul.dropdown-menu
-                if (products)
-                  each product in products
-                    li
-                      a(href='/products/'+product._id, tabindex="-1") #{product.title}
-                li.divider
                 li
                   a(href='/products/video', title="糊盒机视频", tabindex="-1") 糊盒机视频
+                li.divider
             li
               a(href="/network", title="销售网络") 销售网络
             li
