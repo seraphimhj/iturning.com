@@ -26,6 +26,7 @@ module.exports = function (app, passport, auth) {
   app.get('/oauth', taobao.oauth)
   app.get('/sync', taobao.verifyAccessToken, taobao.verifyTbData, taobao.sync)
   app.get('/product', taobao.verifyTbData, taobao.product)
+  app.get('/taobao_redirect', taobao.redirect)
  
   // home route
   app.get('/', taobao.verifyTbData, taobao.index)
@@ -37,5 +38,6 @@ module.exports = function (app, passport, auth) {
   // tag routes
   var tags = require('../app/controllers/tags')
   app.get('/tags/:tag', tags.index)
+
 
 }

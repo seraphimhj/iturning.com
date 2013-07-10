@@ -43,7 +43,7 @@ exports.verifyAccessToken = function(req, res, next){
 } 
 
 exports.verifyTbData = function(req, res, next) {
-  is_sync = req.path.match('synk')
+  is_sync = req.path.match('sync')
   if (is_sync) {
     if (req.session.taobao_data) {
       res.redirect('/');
@@ -140,3 +140,6 @@ exports.index = function(req, res){
   });
 }    
  
+exports.redirect = function(req, res) {
+  return res.redirect('http://item.taobao.com/item.htm?id=26027780484');
+}
